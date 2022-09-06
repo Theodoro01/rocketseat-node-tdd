@@ -11,15 +11,31 @@ describe('Authenticate', () => {
     const user = await User.create({
       name: 'Diego',
       email: 'diego@rocketseat.com.br',
-      password_hash: '1234567'
+      password: '1234567'
     })
     const response = await request(app)
       .post('/sessions')
       .send({
         email: user.email,
-        password: '162568347'
+        password: '1234567'
       })
 
     expect(response.statusCode).toBe(200)
+  })
+
+  it('should not authenticate with invalid credentials', async () => {
+    const user = await User.create({
+      name: 'Diego',
+      email: 'diego@rocketseat.com.br',
+      password: '1234567'
+    })
+    const response = await request(app)
+      .post('/sessions')
+      .send({
+        email: user.email,
+        password: '123123'
+      })
+
+    expect(response.status).toBe(401)
   })
 })
