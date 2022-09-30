@@ -5,11 +5,11 @@ module.exports = {
 
   clearMocks: true,
 
-  // collectCoverage: true,
+  collectCoverage: true,
 
-  // collectCoverageFrom: ['src/**'],
+  collectCoverageFrom: ['src/**'],
 
-  // coverageDirectory: '__tests__/coverage',
+  coverageDirectory: '__tests__/coverage',
 
   testEnvironment: 'node',
 
